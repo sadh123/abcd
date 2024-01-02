@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+<html>
+<head>
+<title>Nepal Stock Prediction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+   
+    background-image: url( "{% static 'home/icon/wallpaper.jpg' %}");
+    background-size: 100%;
+    margin: 0;
+    }
+    </body>
+    \
+.dropbtn {
+    
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color:#5882FA ;
+}
+
+#myInput {
+    border-box: box-sizing;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    min-width: 230px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#5882FA;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: Black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+h2 {
+    color: Blue;
+}
+
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+</head>
+<body>
+
+
+
+
+
+<h2><p><b><font size = "10">select the company</font></b></p></h2>
+
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Company</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+	
+    <a href="/result?company=ADBL">ADBL</a>
+    <a href="/result?company=CHCL">CHCL</a>
+    <a href="/result?company=NABIL">NABIL</a>
+    <a href="/result?company=NLIC">NLIC</a>
+    <a href="/result?company=NTC">NTC</a>
+    <a href="/result?company=OHL">OHL</a>
+    <a href="/result?company=PLIC">PLIC</a>
+    <a href="/result?company=SBI">SBI</a>
+    <a href="/result?company=SCB">SCB</a>
+    <a href="/result?company=SHL">SHL</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
+
